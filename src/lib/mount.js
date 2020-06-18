@@ -1,4 +1,5 @@
 import store from './store'
+import storage from "./storage";
 
 // provides stitch config to client.
 const mount  = (framework, name, options) => {
@@ -37,9 +38,11 @@ const mount  = (framework, name, options) => {
 
   if(!errorMessage) {
     // figure out the mode.
-    if(!document.getElementById(mountAppId)) {
-      store.mode = 'dev'
+    if(document.getElementById(mountAppId)) {
+      storage.set("stitch:mode", "serve");
     }
+    storage.set("stitch:mode", "dev");
+
 
     // mount by package name or default to the app entry for local development.
     if(framework == 'vue') {
