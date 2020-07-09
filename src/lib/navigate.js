@@ -6,14 +6,14 @@ const toApp = (app, params) => {
   let url = app;
   if(params) {
     const qs = queryString.stringify(params);
-    url += "#?" + qs;
+    url = url + "#?" + qs;
   }
 
   if(mode === "development" ) {
-    alert(`Simulating navigation to '${app}' while in development environment. `)
+    alert(`Simulating navigation to '${url}' while in development environment. `)
   }
   else {
-    window.location.href = app;
+    window.location.href = url;
   }
 }
 
