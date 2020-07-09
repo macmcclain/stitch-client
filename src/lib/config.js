@@ -17,7 +17,7 @@ const config = () => {
       else if(mode === 'dev') {
         // simulate config
         var config = emulatedConfig;
-        console.log("config", config);
+        console.log("stitch-config", config);
         resolve(config);
       }
       else {

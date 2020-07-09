@@ -67,7 +67,7 @@ export default {
     }
   ],
   currentApp: {
-    id: 'emulated-config-app',
+    id: 'emulated-config-app-2',
     name: 'emulated-config-app',
     config: {
       label: 'Emulated Config App',
