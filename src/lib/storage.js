@@ -1,13 +1,15 @@
 var ls = require('local-storage');
+import checkMode from "./check-mode";
 
 const set = (key, value) => {
   ls.set(key, value);
 }
 
-const get = (key) => {
-  const mode = process.env.NODE_ENV;
+
+
+const get = async (key) => {
   let val = ls.get(key);
-  if(mode === "development" && val === null) {
+  if(await checkMode() === "development" && val === null) {
     val = prompt(`Please enter a value for '${key}'`);
     ls.set(key, val);
     alert(`The value of '${val}' has been stored for '${key}'. To clear this value, clear your browsers local storage.`)

@@ -1,4 +1,5 @@
 const queryString = require('query-string');
+import checkMode from './check-mode'
 
 const toApp = (app, params) => {
   const mode = process.env.NODE_ENV;
@@ -9,7 +10,7 @@ const toApp = (app, params) => {
     url = url + "#?" + qs;
   }
 
-  if(mode === "development" ) {
+  if(checkMode() === "development" ) {
     alert(`Simulating navigation to '${url}' while in development environment. `)
   }
   else {

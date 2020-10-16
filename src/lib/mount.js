@@ -7,6 +7,9 @@ const mount  = (framework, name, options) => {
 
   console.log("mount", framework, name, options);
 
+  const mode = process.env['NODE' + '_ENV'];
+  console.log("mount options", options)
+
 
   //validate mount params.
   let errorMessage = null;
